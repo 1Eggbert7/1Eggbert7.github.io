@@ -3,6 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Eggbert</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Fredoka+One&display=swap" rel="stylesheet"> <!-- Google Fonts -->
+    <style>
+        @keyframes bounce {
+            0%, 100% {
+                margin-left: 0;
+                transform: translateX(0);
+            }
+            50% {
+                margin-left: 50vw; /* Move to the middle of the viewport width */
+                transform: translateX(-50%);
+            }
+        }
+        body {
+            overflow-x: hidden; /* Prevents scroll bar from appearing */
+            background-color: #FFCCB6; /* Peachy orange background color */
+        }
+        p {
+            position: absolute;
+            width: 100px;
+            margin: 0;
+            top: 50%; /* Center vertically */
+            transform: translateY(-50%);
+            animation: bounce 3s infinite; /* Runs the animation */
+            animation-timing-function: ease-in-out; /* Smooth movement */
+            font-family: 'Fredoka One', cursive; /* Example with Fredoka One */
+            font-size: 200px; /* Larger font size */
+            color: rgb(82, 233, 82); /* Green text color */
+        }
+    </style>
 </head>
 <body>
     <p>Eggbert</p>
