@@ -3,37 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <title>Eggbert</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Fredoka+One&display=swap" rel="stylesheet"> <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Fredoka+One&display=swap" rel="stylesheet">
     <style>
         @keyframes bounce {
-            0%, 100% {
-                margin-left: 0;
-                transform: translateX(0);
-            }
-            50% {
-                margin-left: 50vw; /* Move to the middle of the viewport width */
-                transform: translateX(-50%);
-            }
+            0%, 100% {transform: translateX(-50vw); }
+            50% {transform: translateX(0vw); }
+        }
+        @keyframes ring {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(15deg); }
+            50% { transform: rotate(-15deg); }
+            75% { transform: rotate(15deg); }
         }
         body {
-            overflow-x: hidden; /* Prevents scroll bar from appearing */
-            background-color: #FFCCB6; /* Peachy orange background color */
+            overflow-x: hidden;
+            background-color: #f8ae8f;
         }
         p {
             position: absolute;
             width: 100px;
             margin: 0;
-            top: 50%; /* Center vertically */
-            transform: translateY(-50%);
-            animation: bounce 3s infinite; /* Runs the animation */
-            animation-timing-function: ease-in-out; /* Smooth movement */
-            font-family: 'Fredoka One', cursive; /* Example with Fredoka One */
-            font-size: 200px; /* Larger font size */
-            color: rgb(82, 233, 82); /* Green text color */
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            animation: bounce 5s infinite ease-in-out;
+            font-family: 'Fredoka One', cursive;
+            font-size: 200px;
+            color: rgb(82, 233, 82);
+            cursor: pointer;
+            transition: color 0.3s;
         }
     </style>
 </head>
 <body>
-    <p>Eggbert</p>
+    <p id="eggbertText">Eggbert</p>
+
+    <script>
+        const eggbertText = document.getElementById('eggbertText');
+        let clickCount = 0;
+        eggbertText.onclick = function() {
+            clickCount++; // Increment click count
+            if (clickCount % 5 === 0) { // Every 5th click
+                eggbertText.style.animation = 'ring 0.1s 3'; // Apply the ring animation
+                setTimeout(function() {
+                    eggbertText.style.animation = 'bounce 3s infinite ease-in-out'; // Revert to bounce animation
+                }, 300); // After 0.3 seconds
+            }
+            // Toggle colors
+            if (eggbertText.style.color == 'rgb(137, 207, 240)') {
+                eggbertText.style.color = 'rgb(82, 233, 82)';
+            } else {
+                eggbertText.style.color = 'rgb(137, 207, 240)';
+            }
+        }
+    </script>
 </body>
 </html>
