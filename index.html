@@ -2,69 +2,168 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Eggbert</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Fredoka+One&display=swap" rel="stylesheet">
-    <style>
-        @keyframes bounce {
-            0%, 100% {transform: translateX(-50vw); }
-            50% {transform: translateX(0vw); }
-        }
-        @keyframes ring {
-            0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(15deg); }
-            50% { transform: rotate(-15deg); }
-            75% { transform: rotate(15deg); }
-        }
-        body {
-            overflow-x: hidden;
-            background-color: #f8ae8f;
-        }
-        p {
-            position: absolute;
-            width: 100px;
-            margin: 0;
-            top: 20%;
-            left: 50%;
-            transform: translateX(-50%) translateY(-50%);
-            animation: bounce 5s infinite ease-in-out;
-            font-family: 'Fredoka One', cursive;
-            font-size: 200px;
-            color: rgb(82, 233, 82);
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexander Leszczynski - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NT4HHJ19MQ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-NT4HHJ19MQ');
-</script>
 <body>
-    <p id="eggbertText">Eggbert</p>
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">Alexander Leszczynski</div>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <script>
-        const eggbertText = document.getElementById('eggbertText');
-        let clickCount = 0;
-        eggbertText.onclick = function() {
-            clickCount++; // Increment click count
-            if (clickCount % 5 === 0) { // Every 5th click
-                eggbertText.style.animation = 'ring 0.1s 3'; // Apply the ring animation
-                setTimeout(function() {
-                    eggbertText.style.animation = 'bounce 3s infinite ease-in-out'; // Revert to bounce animation
-                }, 300); // After 0.3 seconds
-            }
-            // Toggle colors
-            if (eggbertText.style.color == 'rgb(137, 207, 240)') {
-                eggbertText.style.color = 'rgb(82, 233, 82)';
-            } else {
-                eggbertText.style.color = 'rgb(137, 207, 240)';
-            }
-        }
-    </script>
+    <section class="hero">
+        <div class="container">
+            <h1>Hi, I'm Alexander Leszczynski</h1>
+            <p>AI & Software Developer with a Passion for Robotics and Games</p>
+            <a href="#contact" class="cta-button">Get In Touch</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Creative Technologist</h3>
+                    <p>I'm a recent Computer Science Master's graduate from KTH Stockholm with a passion for AI, robotics, and video games. I thrive on turning complex ideas into interactive systems, particularly those involving user interaction, behavior trees, and large language models.</p>
+                    <p>Whether it's designing intelligent NPCs, building conversational robots, or hacking on personal Python projects, I enjoy bringing ideas to life with code.</p>
+                </div>
+                <div class="profile-image">
+                    <img src="assets/images/image(3).jpg" alt="Alexander Leszczynski profile photo" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fab fa-python"></i>
+                    <h4>Programming</h4>
+                    <p>Python, C++, JavaScript, HTML, CSS</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-robot"></i>
+                    <h4>AI & Robotics</h4>
+                    <p>LLMs (OpenAI API), Behavior Trees, HRI, Stockfish AI, Raspberry Pi</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-server"></i>
+                    <h4>Tools & DevOps</h4>
+                    <p>Git, VSCode, Bash, Docker (basic), Linux</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-cloud"></i>
+                    <h4>Cloud & Automation</h4>
+                    <p>Azure (Power Platform), Excel Automation, REST APIs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="project-content">
+                        <h4>BT-PLAN: Conversational Robot Framework</h4>
+                        <p>Thesis framework combining Behavior Trees and LLMs to improve interaction with a talking robot (Furhat) for kitchen assistance.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/1Eggbert7" target="_blank"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="project-content">
+                        <h4>Personal Portfolio Website</h4>
+                        <p>This responsive portfolio site showcases my skills, projects, and contact info. Built with HTML, CSS, and a touch of JavaScript, it's designed for modern web presence and easy CV integration.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/1Eggbert7/1Eggbert7.github.io" target="_blank"><i class="fab fa-github"></i> Code</a>
+                            <!-- Optionally, add a live link if deployed -->
+                            <!-- <a href="https://1Eggbert7.github.io/" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <div class="project-content">
+                        <h4>Smart Plant Growbox (Raspberry Pi)</h4>
+                        <p>Monitors plant environment with sensors (DHT22, moisture) using Python, Bash, and cron jobs. Includes automated logging and SSH remote access.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/1Eggbert7" target="_blank"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-flex">
+                <div class="contact-intro">
+                    <h2 class="section-title" style="text-align:left;">Get In Touch</h2>
+                    <p style="text-align:left;">Open to opportunities in AI, robotics, or game dev. Feel free to reach out!</p>
+                    <div class="contact-info-icons" style="justify-content:flex-start;">
+                        <a class="contact-icon" href="mailto:alexander.leszczynski@yahoo.de" title="Email">
+                            <i class="fas fa-envelope"></i>
+                            <span class="contact-label">alexander.leszczynski@yahoo.de</span>
+                        </a>
+                        <a class="contact-icon" href="https://www.linkedin.com/in/alexander-leszczynski-695960227/" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span class="contact-label">linkedin.com/in/alexander-leszczynski</span>
+                        </a>
+                        <a class="contact-icon" href="https://github.com/1Eggbert7" target="_blank" title="GitHub">
+                            <i class="fab fa-github"></i>
+                            <span class="contact-label">github.com/1Eggbert7</span>
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form contact-form-large" action="https://formspree.io/f/xblkrrrp" method="POST">
+                    <h3>Contact Me Directly</h3>
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Your Message" rows="7" required></textarea>
+                    </div>
+                    <input type="text" name="_gotcha" style="display:none">
+                    <button type="submit" class="cta-button">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Alexander Leszczynski. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
